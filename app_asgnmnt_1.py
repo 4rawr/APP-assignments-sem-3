@@ -8,8 +8,6 @@ class Book:
         status = "Borrowed" if self.is_borrowed else "Available"
         print(f"Title: {self.title}, Author: {self.author}, Status: {status}")
 
-
-
 class Patron:
     def __init__(self, name):
         self.name = name
@@ -18,27 +16,22 @@ class Patron:
     def display(self):
         print(f"Patron Name: {self.name}")
         print("Borrowed Books:", self.borrowed_books)
-
-
-
+        
 class Library:
     def __init__(self):
         self.books = []
         self.patrons = []
 
-    # Add a new book
     def add_book(self, title, author):
         book = Book(title, author)
         self.books.append(book)
         print("Book added successfully!")
 
-    # Register a new patron
     def register_patron(self, name):
         patron = Patron(name)
         self.patrons.append(patron)
         print("Patron registered successfully!")
 
-    # Borrow a book
     def borrow_book(self, patron_name, book_title):
         for patron in self.patrons:
             if patron.name == patron_name:
@@ -50,7 +43,6 @@ class Library:
                         return
         print("Book not available or Patron not found.")
 
-    # Return a book
     def return_book(self, patron_name, book_title):
         for patron in self.patrons:
             if patron.name == patron_name:
@@ -63,14 +55,11 @@ class Library:
                     return
         print("Return failed.")
 
-    # Display all books
     def display_books(self):
         print("\nLibrary Books:")
         for book in self.books:
             book.display()
 
-
-# Main Program
 library = Library()
 
 while True:
@@ -114,7 +103,26 @@ while True:
         print("Invalid Choice!")
 
 # Output
-'''===== Library Management System =====
+'''⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣤⣤⣤⣤⣤⣶⣦⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⡿⠛⠉⠙⠛⠛⠛⠛⠻⢿⣿⣷⣤⡀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⣼⣿⠋⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⠈⢻⣿⣿⡄⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⣸⣿⡏⠀⠀⠀⣠⣶⣾⣿⣿⣿⠿⠿⠿⢿⣿⣿⣿⣄⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⣿⣿⠁⠀⠀⢰⣿⣿⣯⠁⠀⠀⠀⠀⠀⠀⠀⠈⠙⢿⣷⡄⠀
+⠀⠀⣀⣤⣴⣶⣶⣿⡟⠀⠀⠀⢸⣿⣿⣿⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣷⠀
+⠀⢰⣿⡟⠋⠉⣹⣿⡇⠀⠀⠀⠘⣿⣿⣿⣿⣷⣦⣤⣤⣤⣶⣶⣶⣶⣿⣿⣿⠀
+⠀⢸⣿⡇⠀⠀⣿⣿⡇⠀⠀⠀⠀⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠃⠀
+⠀⣸⣿⡇⠀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠉⠻⠿⣿⣿⣿⣿⡿⠿⠿⠛⢻⣿⡇⠀⠀
+⠀⣿⣿⠁⠀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣧⠀⠀
+⠀⣿⣿⠀⠀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⠀⠀
+⠀⣿⣿⠀⠀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⠀⠀
+⠀⢿⣿⡆⠀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⡇⠀⠀
+⠀⠸⣿⣧⡀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⠃⠀⠀
+⠀⠀⠛⢿⣿⣿⣿⣿⣇⠀⠀⠀⠀⠀⣰⣿⣿⣷⣶⣶⣶⣶⠶⠀⢠⣿⣿⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⣿⣿⠀⠀⠀⠀⠀⣿⣿⡇⠀⣽⣿⡏⠁⠀⠀⢸⣿⡇⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⣿⣿⠀⠀⠀⠀⠀⣿⣿⡇⠀⢹⣿⡆⠀⠀⠀⣸⣿⠇⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⢿⣿⣦⣄⣀⣠⣴⣿⣿⠁⠀⠈⠻⣿⣿⣿⣿⡿⠏⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠈⠛⠻⠿⠿⠿⠿⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+===== Library Management System =====
 1. Add Book
 2. Register Patron
 3. Borrow Book
@@ -122,6 +130,7 @@ while True:
 5. Display Books
 6. Exit
 
-Enter your choice: 2
-Enter Patron Name: Rahul
-Patron registered successfully!'''
+Enter your choice: 4
+Enter Patron Name: Giorno Giovanna
+Enter Book Title: JoJo's Bizarre Adventure Part 5 - Golden Wind (Rolling Stones/Sleeping Slaves of Fate arc)
+Book Returned successfully!'''
